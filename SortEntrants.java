@@ -28,21 +28,16 @@ public class SortEntrants {
 */
 
     Collections.sort(entrants);
-    
-//    find_entrant(entrants, 1, new ArrayList<Integer>(), 5);
-  //  return;
 
     int num_out = find_seeds(entrants);
     int num_pools = find_pools(entrants);
+
     ArrayList<ArrayList<Entrant>> pieces = new ArrayList<ArrayList<Entrant>>();
+
     pieces = Pools_To_Bracket(entrants, num_out, num_pools);
     ArrayList<Entrant> bracket = new ArrayList<Entrant>();
     bracket = merge_bracket(pieces, bracket);
 
-    //for (ArrayList<Entrant> list: pieces) {
-      //print(list, num_pools);
-      //System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-    //}
     print(bracket, num_pools);
   }
 
@@ -87,6 +82,7 @@ public class SortEntrants {
     return bracket;
   }
 
+  // Merge the bracket sections into one bracket
   public static ArrayList<Entrant> merge_bracket(ArrayList<ArrayList<Entrant>> pieces, ArrayList<Entrant> bracket) {
     if (pieces.size() <= 1) {
       return bracket;
@@ -141,7 +137,8 @@ public class SortEntrants {
     }
   }
 
-  // Search for an Entrant using next best fit.
+  // Search for an Entrant using next best fit.  For finding a first seed
+  // that is a match for the last first seed
   public static int find_entrant(ArrayList<Entrant> entrants, int seed, ArrayList<Integer> pools, int index, int num_pools, int pool_total) {
     int i = index;
     while (true) {
@@ -165,6 +162,7 @@ public class SortEntrants {
     }
   }
 
+  // Find how many people made it out of pools
   public static int find_seeds(ArrayList<Entrant> entrants) {
     int max_seed = 0;
     for (Entrant entrant: entrants) {
@@ -175,6 +173,7 @@ public class SortEntrants {
     return max_seed;
   }
 
+  // Find how many pools there were.
   public static int find_pools(ArrayList<Entrant> entrants) {
     int max_pool = 0;
     for (Entrant entrant: entrants) {
@@ -185,6 +184,7 @@ public class SortEntrants {
     return max_pool;
   }
 
+  // print the list with gaps between bracket sections
   public static void print(ArrayList<Entrant> entrants, int pools) {
     int count = 0;
     for(Entrant entrant: entrants) {
