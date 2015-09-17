@@ -35,6 +35,13 @@ so<b>:</b>
 
 `java SortEntrants [filename]`
 
+##Input
+
+This program runs on a text file specified by the user in the format
+poolnumber seednumber\n
+
+`1 2\n`
+
 ##TODO
 ###Testing
 This program has been tested with 8 pool and 4 people make it out of 
@@ -42,11 +49,9 @@ pools and with 4 pools and 4 make it out.  This program will definitely
 break if more than 4 people out but should work for less than 4 out. 
 Further Testing is required.
 ###Input
-A file parser needs to be written that can read in the data from a 
-formatted text file.  It would most likely be in the format 
-`Pool, Seed, Name`  This would allow for quick passing of information 
-between this program and pool by-hand pool sheets or communication 
-between this and the registration software.
+The input paser must be eexpanded to read in a name and there should also 
+be a different delimiter used (opposed to space) so that names with spaces 
+will be accepted.
 ###Python Re-Implementation
 This program can also be re-implemented in python so that it can be 
 used in conjunction with the python registration software for quick and 

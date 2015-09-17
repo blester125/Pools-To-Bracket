@@ -4,7 +4,11 @@ import java.io.*;
 public class SortEntrants {
   public static void main(String args[]) throws IOException{
   	ArrayList<Entrant> entrants = new ArrayList<Entrant>();
-  	String fileName = "32Top2";
+  	System.out.print("Enter the file name: ");
+  	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+  	String fileName;
+  	fileName = br.readLine();
+  	System.out.println(fileName);
   	String line = null;
   	FileReader fileReader = new FileReader(fileName);
   	BufferedReader bufferedReader = new BufferedReader(fileReader);
@@ -12,30 +16,6 @@ public class SortEntrants {
       String[] parts = line.split(" ");
       entrants.add(new Entrant(Integer.parseInt(parts[0]), Integer.parseInt(parts[1]), ""));
   	}
-    /*String entrants_names[] = {"Alice", "Bob", "Charlie", "Dave", "Erin", 
-                               "Fred", "Gerald", "Hi", "Jim", "Kyle", "Ian", 
-                               "Lee", "Moe", "Nemo", "Oscar", "Paul", "Quinn", 
-                               "Rick", "Stan", "Tim", "Uma", "Vicki", "Walt", 
-                               "Xander", "Yancy", "Zed", "Aaron", "Brian", 
-                               "Chole", "Dale", "Evan", "Finn"};
-    ArrayList<Entrant> entrants = new ArrayList<Entrant>();
-    for (int i = 1; i < 9; i++) {
-      for (int j = 1; j < 5; j++) {
-        entrants.add(new Entrant(i, j, entrants_names[(i-1)*4 + (j-0) - 1]));
-      }
-    }*/
-   
-/*  
-    entrants.clear();
-    entrants.add(new Entrant(1, 1, "A"));
-    entrants.add(new Entrant(1, 2, "B"));
-    entrants.add(new Entrant(1, 3, "C"));
-    entrants.add(new Entrant(1, 4, "D"));
-    entrants.add(new Entrant(2, 1, "E"));
-    entrants.add(new Entrant(2, 2, "F"));
-    entrants.add(new Entrant(2, 3, "G"));
-    entrants.add(new Entrant(2, 4, "H"));
-*/
 
     Collections.sort(entrants);
 
