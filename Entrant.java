@@ -10,7 +10,7 @@ public class Entrant implements Comparable<Entrant> {
   }
   
   public String toString() {
-    return "Pool: " + pool +", Seed: " + seed + ", " + name;
+    return "Pool: " + pool +" Seed: " + seed + " " + name;
   }
   
   public int compareTo(Entrant other) {

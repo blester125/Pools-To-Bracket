@@ -1,8 +1,18 @@
 import java.util.*;
+import java.io.*;
 
 public class SortEntrants {
-  public static void main(String args[]) {
-    String entrants_names[] = {"Alice", "Bob", "Charlie", "Dave", "Erin", 
+  public static void main(String args[]) throws IOException{
+  	ArrayList<Entrant> entrants = new ArrayList<Entrant>();
+  	String fileName = "32Top2";
+  	String line = null;
+  	FileReader fileReader = new FileReader(fileName);
+  	BufferedReader bufferedReader = new BufferedReader(fileReader);
+  	while ( (line = bufferedReader.readLine()) != null) {
+      String[] parts = line.split(" ");
+      entrants.add(new Entrant(Integer.parseInt(parts[0]), Integer.parseInt(parts[1]), ""));
+  	}
+    /*String entrants_names[] = {"Alice", "Bob", "Charlie", "Dave", "Erin", 
                                "Fred", "Gerald", "Hi", "Jim", "Kyle", "Ian", 
                                "Lee", "Moe", "Nemo", "Oscar", "Paul", "Quinn", 
                                "Rick", "Stan", "Tim", "Uma", "Vicki", "Walt", 
@@ -13,7 +23,7 @@ public class SortEntrants {
       for (int j = 1; j < 5; j++) {
         entrants.add(new Entrant(i, j, entrants_names[(i-1)*4 + (j-0) - 1]));
       }
-    }
+    }*/
    
 /*  
     entrants.clear();
@@ -59,7 +69,8 @@ public class SortEntrants {
           } 
           if (z == 1) {
             if( pools_total != -1) {
-              index = find_entrant(entrants, z, pools, index, num_pools, pools_total);
+              //index = find_entrant(entrants, z, pools, index, num_pools, pools_total);
+              index = find_entrant(entrants, z, pools);
               pools_total = -1;
             } else {
               index = find_entrant(entrants, z, pools, index);
